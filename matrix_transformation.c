@@ -2,7 +2,6 @@
 // Created by Jonathan Bakebwa on 29/01/2018.
 //
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 int main(){
@@ -17,14 +16,19 @@ int main(){
     }
     printf("num:");
 
-    for(i = 1; i < columns; i++){
-        printf("%d", num[i]);
+    for(i = 1; i <= columns; i++){
+        printf("%d,", num[i]);
     }
     printf("\n");
     printf("cpot:1,");
     cpot[1] = 1;
 
-    for(i = 2; i <= nonZeroNumbers; i++){
+    for(i = 2; i <= columns; i++){
+        cpot[i] = cpot[i - 1] + num[i - 1];
+        printf("%d,", cpot[i]);
+    }
+    printf("\n");
+    for(i = 1; i <= nonZeroNumbers; i++){
         col = matrix[i][1];
         q = cpot[col];
         output[q][0] = matrix[i][1];
@@ -34,5 +38,5 @@ int main(){
     }
     for(i = 1; i <= nonZeroNumbers; i++)
         printf("%d,%d,%d\n", output[i][0], output[i][1], output[i][2]);
-
+    return 0;
 }
