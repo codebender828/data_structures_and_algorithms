@@ -11,7 +11,7 @@ int main(){
     int matrix[100][3], num[100], cpot[100], output[100][3], col, q;
 
     memset(num, 0, sizeof(num));
-    for(i = 1; i < nonZeroNumbers; i++){
+    for(i = 1; i <= nonZeroNumbers; i++){
         scanf("%d %d %d", &matrix[i][0], &matrix[i][1], &matrix[i][2]);
         num[matrix[i][1]]++;
     }
